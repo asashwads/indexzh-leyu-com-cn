@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://asashwads.github.io/indexzh-leyu-com-cn/sitemap.xml
