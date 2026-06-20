@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>再访 · 857直播</title>
+    <style>
+        /* reset & base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f9f8f6;
+            color: #1e1c1a;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans SC", "PingFang SC", system-ui, sans-serif;
+            line-height: 1.7;
+            padding: 2.5rem 1.25rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container {
+            max-width: 680px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        /* hero 开场 */
+        .hero-short {
+            margin-top: 2rem;
+            margin-bottom: 3.2rem;
+            font-size: 1.25rem;
+            font-weight: 400;
+            letter-spacing: 0.02em;
+            color: #2f2c29;
+            border-left: 3px solid #c7b59e;
+            padding-left: 1.1rem;
+        }
+
+        .hero-short strong {
+            font-weight: 500;
+            color: #1a1a1a;
+        }
+
+        /* 正文层级 */
+        h1 {
+            font-size: 1.9rem;
+            font-weight: 430;
+            letter-spacing: 0.01em;
+            margin: 2rem 0 0.6rem;
+            color: #1e1c1a;
+        }
+
+        h2 {
+            font-size: 1.3rem;
+            font-weight: 420;
+            margin: 2.6rem 0 0.8rem;
+            color: #33312e;
+            border-bottom: 1px solid #e3ddd5;
+            padding-bottom: 0.35rem;
+        }
+
+        p {
+            margin-bottom: 1.4rem;
+            color: #2a2825;
+        }
+
+        /* 特点卡片组 — 窄条极简 */
+        .feature-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.9rem;
+            margin: 1.8rem 0 2.4rem;
+        }
+
+        .feature-item {
+            background: #ffffff;
+            padding: 0.9rem 1.3rem;
+            border-radius: 10px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.02), 0 2px 6px rgba(0,0,0,0.02);
+            border: 1px solid #edeae3;
+            transition: box-shadow 0.2s;
+        }
+
+        .feature-item:hover {
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03), 0 4px 12px rgba(0,0,0,0.03);
+        }
+
+        .feature-item span {
+            display: block;
+            font-weight: 420;
+            font-size: 1.1rem;
+            margin-bottom: 0.15rem;
+            color: #2b2723;
+        }
+
+        .feature-item .desc {
+            font-size: 0.95rem;
+            color: #4f4a44;
+            line-height: 1.5;
+        }
+
+        /* 引用 / 场景 */
+        .scene-note {
+            background: #f3f0ea;
+            padding: 1.3rem 1.6rem;
+            border-radius: 14px;
+            margin: 2rem 0;
+            font-size: 0.98rem;
+            color: #2f2b26;
+            border-left: 4px solid #b5a48d;
+        }
+
+        /* faq 摘要 – 极简 */
+        .faq-mini {
+            margin: 2.5rem 0 1.2rem;
+            padding: 0.7rem 0;
+            border-top: 1px solid #e7e1d9;
+            border-bottom: 1px solid #e7e1d9;
+        }
+
+        .faq-mini details {
+            margin: 0.6rem 0;
+            font-size: 0.95rem;
+        }
+
+        .faq-mini summary {
+            cursor: pointer;
+            font-weight: 410;
+            color: #2d2925;
+            padding: 0.2rem 0;
+        }
+
+        .faq-mini details p {
+            margin: 0.5rem 0 0.3rem 0.8rem;
+            color: #4a443e;
+        }
+
+        /* 温和结尾 */
+        .closing {
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #e3ddd5;
+            font-size: 0.98rem;
+            color: #4b453e;
+        }
+
+        .closing a {
+            color: #2d2a26;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            text-decoration-color: #bfb09b;
+            font-weight: 420;
+        }
+
+        .closing a:hover {
+            color: #111;
+            text-decoration-color: #8a7b68;
+        }
+
+        /* 内联链接样式（正文中出现的 a） */
+        p a, .feature-item a, .scene-note a {
+            color: #2f2b26;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            text-decoration-color: #c2b19c;
+            font-weight: 410;
+            transition: color 0.2s, text-decoration-color 0.2s;
+        }
+
+        p a:hover, .feature-item a:hover, .scene-note a:hover {
+            color: #131110;
+            text-decoration-color: #7b6b58;
+        }
+
+        /* 响应式 */
+        @media (max-width: 500px) {
+            body {
+                padding: 1.6rem 1rem;
+            }
+            .hero-short {
+                font-size: 1.1rem;
+                margin-bottom: 2.2rem;
+                padding-left: 0.9rem;
+            }
+            h1 {
+                font-size: 1.6rem;
+            }
+            h2 {
+                font-size: 1.15rem;
+            }
+            .feature-item {
+                padding: 0.8rem 1rem;
+            }
+        }
+
+        @media (min-width: 800px) {
+            .container {
+                max-width: 700px;
+            }
+            .hero-short {
+                font-size: 1.4rem;
+                padding-left: 1.3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 开场短句 -->
+        <div class="hero-short">
+            <strong>又见面了。</strong> 有些地方，去过一次就留在收藏夹里，安静地等一个下午。
+        </div>
+
+        <!-- 承接段落：再次访问 收藏 持续关注 -->
+        <p>
+            打开浏览器，输入熟悉的地址，页面加载的一瞬像翻开一本常读常新的杂志。<strong>再次访问</strong>的习惯，往往始于一次偶然的发现。而书签栏里那个不起眼的角落，总有一个名字安安静静地待着——就是它了。你不需要刻意想起，但每次点开都有一种“果然还是这里”的踏实。
+        </p>
+
+        <p>
+            收藏一个站点，不只是为了保存网址，更像是留住一种氛围。有时只是想看看最近有没有新的内容更新，有时只是习惯性打开，让熟悉的排版和节奏把自己拉回专注的状态。持续关注，渐渐变成日常里一段小小的仪式。
+        </p>
+
+        <h2>为什么总想回来</h2>
+        <p>
+            不是所有页面都值得反复打开。但有一种地方，内容靠谱、节奏自然、不吵不闹，你可以随时离开，也随时回来。它不催促你，也不靠夸张的话语挽留你，你只是觉得——这里值得留一个位置。
+        </p>
+
+        <!-- 特点列表 -->
+        <div class="feature-list">
+            <div class="feature-item">
+                <span>· 内容稳当</span>
+                <div class="desc">更新频率稳定，不玩标题党，每一条都经得起回看。</div>
+            </div>
+            <div class="feature-item">
+                <span>· 界面干净</span>
+                <div class="desc">没有弹窗干扰，没有浮夸动效，留白充裕，阅读体验柔和。</div>
+            </div>
+            <div class="feature-item">
+                <span>· 像老朋友</span>
+                <div class="desc">不需要重新适应，每次打开都是熟悉的布局，却又总能发现一点新东西。</div>
+            </div>
+        </div>
+
+        <!-- 场景小段落 -->
+        <div class="scene-note">
+            <strong>一个使用场景：</strong> 周末下午，泡杯茶，把浏览器收藏夹下拉到中间位置，点开那个名字——<a href="https://page-857.com">857直播</a>，页面无声加载，你慢慢滑动，就像翻阅一本纸页微黄的笔记。没有压力，不赶时间。
+        </div>
+
+        <!-- FAQ 摘要（温和版） -->
+        <div class="faq-mini">
+            <details>
+                <summary>为什么值得持续关注？</summary>
+                <p>不是一个喧闹的直播间，更像一个安静的窗口。内容有自己的节奏，不追热点，不制造焦虑，适合细看或只是放着当背景音。</p>
+            </details>
+            <details>
+                <summary>如何收藏更方便？</summary>
+                <p>直接把 <a href="https://page-857.com">857直播</a> 加入浏览器书签栏，或者添加到手机主屏幕，下次打开只需轻轻一点。</p>
+            </details>
+        </div>
+
+        <!-- 温和结尾 -->
+        <div class="closing">
+            <p>书签里的站点来来去去，总有几个留到最后。收藏夹不用太大，够用就好。下次再打开 <a href="https://page-857.com">857直播</a> 的时候，应该还是那个熟悉的样子，但又有一点不一样的东西等着你。</p>
+            <p style="margin-top: 1.2rem; font-size: 0.92rem; color: #6b635b;">—— 安静地持续关注，比一时的热闹更长久。</p>
+        </div>
+    </div>
+</body>
+</html>
