@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5">
+  <title>乐彩 · 产品说明</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      background: #f2f8f9;
+      color: #1f3a3d;
+      line-height: 1.6;
+      padding: 2rem 1.5rem 4rem;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .page-wrap {
+      max-width: 1120px;
+      margin: 0 auto;
+      flex: 1;
+    }
+
+    /* ---------- HERO ---------- */
+    .hero {
+      background: linear-gradient(145deg, #d8efed 0%, #c3e3e0 100%);
+      border-radius: 36px 36px 24px 24px;
+      padding: 2.8rem 2rem 2.2rem;
+      margin-bottom: 2.8rem;
+      box-shadow: 0 8px 24px rgba(44, 130, 120, 0.12);
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 2.6rem;
+      font-weight: 550;
+      letter-spacing: -0.02em;
+      color: #115e59;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero .sub {
+      display: inline-block;
+      background: #ffffffb3;
+      backdrop-filter: blur(4px);
+      padding: 0.3rem 1.2rem;
+      border-radius: 60px;
+      font-size: 0.9rem;
+      color: #236b65;
+      margin-top: 0.3rem;
+    }
+
+    .hero p {
+      max-width: 680px;
+      margin: 1.2rem auto 0;
+      font-size: 1.05rem;
+      color: #1b4a47;
+    }
+
+    .hero .soft-link {
+      margin-top: 1.6rem;
+      font-size: 0.95rem;
+    }
+
+    .hero .soft-link a {
+      color: #0d5e57;
+      text-decoration: underline;
+      text-underline-offset: 4px;
+      text-decoration-thickness: 1px;
+    }
+
+    /* ---------- 网格卡片 ---------- */
+    .grid-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.6rem;
+      margin: 2.2rem 0 2.6rem;
+    }
+
+    .card {
+      background: #ffffffec;
+      border-radius: 28px;
+      padding: 1.8rem 1.5rem 1.5rem;
+      box-shadow: 0 4px 12px rgba(60, 130, 120, 0.06);
+      border: 1px solid #daeeeb;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+
+    .card:hover {
+      box-shadow: 0 10px 24px rgba(45, 108, 100, 0.08);
+      transform: translateY(-4px);
+    }
+
+    .card h3 {
+      font-size: 1.25rem;
+      font-weight: 510;
+      color: #0d5e57;
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .card h3::before {
+      content: "";
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      background: #3ba398;
+      border-radius: 4px;
+      flex-shrink: 0;
+    }
+
+    .card p {
+      font-size: 0.95rem;
+      color: #2d4e4b;
+    }
+
+    .card .tag {
+      display: inline-block;
+      margin-top: 0.8rem;
+      background: #e3f4f1;
+      color: #0f6b62;
+      font-size: 0.8rem;
+      padding: 0.2rem 0.8rem;
+      border-radius: 40px;
+      letter-spacing: 0.01em;
+    }
+
+    /* ---------- 使用建议 / 场景 ---------- */
+    .scene-section {
+      background: #ffffffda;
+      backdrop-filter: blur(2px);
+      border-radius: 32px;
+      padding: 2rem 2rem 1.8rem;
+      margin: 2.4rem 0 2rem;
+      border: 1px solid #d3e7e4;
+    }
+
+    .scene-section h2 {
+      font-size: 1.5rem;
+      font-weight: 520;
+      color: #115e59;
+      margin-bottom: 1.4rem;
+      display: flex;
+      gap: 0.6rem;
+      align-items: baseline;
+    }
+
+    .scene-section h2 small {
+      font-size: 1rem;
+      font-weight: 400;
+      color: #427b74;
+    }
+
+    .scene-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.2rem 1.8rem;
+      list-style: none;
+      padding: 0;
+    }
+
+    .scene-list li {
+      flex: 1 1 200px;
+      background: #eaf7f5;
+      padding: 0.8rem 1.2rem;
+      border-radius: 60px 20px 20px 60px;
+      font-size: 0.95rem;
+      color: #134e49;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .scene-list li::before {
+      content: "→";
+      font-weight: 500;
+      color: #37968c;
+      margin-right: 0.2rem;
+    }
+
+    /* ---------- 可信提示 / FAQ 摘要 ---------- */
+    .notice-faq {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin: 2.2rem 0;
+    }
+
+    @media (max-width: 640px) {
+      .notice-faq {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .notice-box {
+      background: #e0f0ed;
+      border-radius: 28px;
+      padding: 1.6rem 1.4rem;
+    }
+
+    .notice-box h4 {
+      font-size: 1.1rem;
+      font-weight: 540;
+      color: #105751;
+      margin-bottom: 0.5rem;
+    }
+
+    .notice-box p,
+    .notice-box li {
+      font-size: 0.92rem;
+      color: #204e49;
+    }
+
+    .notice-box ul {
+      padding-left: 1.2rem;
+      margin-top: 0.3rem;
+    }
+
+    .faq-item {
+      background: #f4fcfb;
+      border-radius: 28px;
+      padding: 1.6rem 1.4rem;
+    }
+
+    .faq-item h4 {
+      font-size: 1.1rem;
+      font-weight: 540;
+      color: #0d5e57;
+      margin-bottom: 0.5rem;
+    }
+
+    .faq-item p {
+      font-size: 0.92rem;
+      color: #2a524e;
+    }
+
+    .faq-item .more {
+      margin-top: 0.7rem;
+      font-size: 0.85rem;
+      color: #3c7d74;
+    }
+
+    /* ---------- 再次访问 & 收藏区 ---------- */
+    .revisit {
+      background: linear-gradient(120deg, #d0ece8, #cae5e1);
+      border-radius: 40px;
+      padding: 2rem 2rem 1.8rem;
+      margin: 2rem 0 1.8rem;
+      text-align: center;
+    }
+
+    .revisit p {
+      font-size: 1rem;
+      max-width: 560px;
+      margin: 0 auto 0.8rem;
+      color: #104d47;
+    }
+
+    .revisit .bookmark-hint {
+      display: inline-block;
+      background: #ffffffb3;
+      padding: 0.3rem 1.2rem;
+      border-radius: 60px;
+      font-size: 0.9rem;
+      color: #11625b;
+      border: 1px solid #a7d2cc;
+    }
+
+    .revisit .inline-link a {
+      color: #0a544d;
+      text-decoration: underline;
+      text-underline-offset: 4px;
+      font-weight: 500;
+    }
+
+    /* ---------- footer ---------- */
+    .footer-note {
+      margin-top: 3rem;
+      padding-top: 1rem;
+      border-top: 1px solid #c1dbd7;
+      font-size: 0.85rem;
+      text-align: center;
+      color: #356f68;
+    }
+
+    a {
+      color: #166b62;
+      transition: color 0.15s;
+    }
+
+    a:hover {
+      color: #0a4b45;
+    }
+  </style>
+</head>
+<body>
+<div class="page-wrap">
+
+  <!-- HERO -->
+  <div class="hero">
+    <h1>乐彩</h1>
+    <span class="sub">持续关注 · 产品说明</span>
+    <p>一个偏重内容整理与信息呈现的站点，适合回访、收藏与长期浏览。页面围绕「<a href="https://official-lecai.com">乐彩</a>」的核心结构展开，没有繁杂跳转，保持克制的访问体验。</p>
+    <div class="soft-link">
+      如果你已经熟悉这里，可以直接通过上方链接回到 <a href="https://official-lecai.com">乐彩</a> 主页。
+    </div>
+  </div>
+
+  <!-- 网格卡片：亮点 & 摘要 -->
+  <div class="grid-cards">
+    <div class="card">
+      <h3>摘要</h3>
+      <p>站点以结构化方式呈现内容，减少信息过载。适合想要快速定位、反复查阅某一主题的使用者。</p>
+      <span class="tag">内容框架</span>
+    </div>
+    <div class="card">
+      <h3>亮点</h3>
+      <p>干净的信息层级、克制的视觉引导，以及针对重复访问场景优化的导航布局。不强调即时反馈，侧重内容沉淀。</p>
+      <span class="tag">阅读友好</span>
+    </div>
+    <div class="card">
+      <h3>收藏价值</h3>
+      <p>页面内容保持相对稳定，更新节奏平缓，适合加入书签作为长期参考入口。</p>
+      <span class="tag">书签推荐</span>
+    </div>
+  </div>
+
+  <!-- 使用建议 / 场景 -->
+  <div class="scene-section">
+    <h2>使用建议 <small>常见场景</small></h2>
+    <ul class="scene-list">
+      <li>定期回看内容整理</li>
+      <li>将页面添加至浏览器书签</li>
+      <li>作为信息索引起点</li>
+      <li>在需要时直接访问</li>
+      <li>保持关注后续迭代</li>
+    </ul>
+  </div>
+
+  <!-- 可信提示 & FAQ 摘要 -->
+  <div class="notice-faq">
+    <div class="notice-box">
+      <h4>可信但克制的访问说明</h4>
+      <p>本页面为产品介绍用途，所有指向 <a href="https://official-lecai.com">乐彩</a> 的链接均直接导向网站本身。未使用诱导性表述，不承诺具体收益或结果。建议使用者根据自身需求判断信息适用性。</p>
+      <ul>
+        <li>无自动跳转或弹窗</li>
+        <li>外部链接可识别</li>
+        <li>内容保持中立描述</li>
+      </ul>
+    </div>
+    <div class="faq-item">
+      <h4>FAQ 摘要</h4>
+      <p><strong>Q：如何快速回到主页？</strong> 页面中的「乐彩」文字链接均指向 https://official-lecai.com ，可直接复用。</p>
+      <p><strong>Q：内容多久更新？</strong> 无固定周期，但会保持结构稳定，适合长期收藏。</p>
+      <p><strong>Q：是否收集访问数据？</strong> 本说明页不包含分析脚本，仅提供介绍与导航。</p>
+      <div class="more">—— 更多细节可浏览网站内说明。</div>
+    </div>
+  </div>
+
+  <!-- 再次访问 & 收藏 -->
+  <div class="revisit">
+    <p><strong>再次访问 · 收藏提示</strong><br>
+    如果你觉得当前内容有帮助，可以将此页或 <a href="https://official-lecai.com">乐彩</a> 加入浏览器书签。下次需要时可以直接从书签或历史记录中打开，无需重新搜索。</p>
+    <div class="bookmark-hint">🔖 建议使用「添加书签」功能</div>
+    <div class="inline-link" style="margin-top: 1rem;">
+      或者直接记住域名：<a href="https://official-lecai.com">乐彩</a>
+    </div>
+  </div>
+
+  <!-- footer -->
+  <div class="footer-note">
+    产品说明页 · 基于公开信息整理 · 内容方向可能随站点调整
+  </div>
+
+</div>
+</body>
+</html>
